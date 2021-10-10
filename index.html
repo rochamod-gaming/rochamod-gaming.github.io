@@ -74,7 +74,8 @@
                 <h3>RochaMod <span id="v2"></span>.1</h3>
               </div>
               <div class="col-sm-4">
-                For 64-BIT Proccessor <b>(if 1.0 version install failed)</b>
+                For 64-BIT Proccessor <br>
+                <b>(if <span id="vx"></span> version install failed)</b>
               </div>
               <div class="col-sm-4">
                 <a target="_blank" id="two" href="#"
@@ -129,6 +130,7 @@
       $("#v1").text(latest);
         $("#v2").text(latest);
         $("#v3").text(latest);
+    $("#vx").text(latest);
         var one =
           "https://github.com/rochamod-gaming/app/raw/main/" +
           latest +
@@ -152,6 +154,7 @@
         $("#v1").text(v);
         $("#v2").text(v);
         $("#v3").text(v);
+          $("#vx").text(latest);
         var one =
           "https://github.com/rochamod-gaming/app/raw/main/" +
           this.value +
