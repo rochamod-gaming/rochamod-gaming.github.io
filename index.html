@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+    <title>ROCHAMOD</title>
+    <style>
+      .cont {
+        padding: 40px;
+      }
+
+      @media screen and (min-width: 480px) {
+        .cont {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cont">
+        <center>
+          <img src="rochamod_logo.png" />
+          <p>
+            Create & Appy your own Choice PUBG config,
+            <span style="color: green">101% Safe</span>
+          </p>
+          <br />
+          <br />
+          <select
+            id="select"
+            class="form-select"
+            aria-label="Default select example"
+          ></select>
+          <br />
+
+          <div class="card p-3">
+            <div class="row">
+              <div class="col-sm-4">
+                <h3>RochaMod <span id="v1"></span></h3>
+              </div>
+              <div class="col-sm-4">For 64-BIT Proccessor</div>
+              <div class="col-sm-4">
+                <a target="_blank" id="one" href="#"
+                  ><button class="btn btn-success">Download APK</button></a
+                >
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="card p-3">
+            <div class="row">
+              <div class="col-sm-4">
+                <h3>RochaMod <span id="v2"></span>.1</h3>
+              </div>
+              <div class="col-sm-4">
+                For 64-BIT Proccessor <b>(if 1.0 version install failed)</b>
+              </div>
+              <div class="col-sm-4">
+                <a target="_blank" id="two" href="#"
+                  ><button class="btn btn-success">Download APK</button></a
+                >
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="card p-3">
+            <div class="row">
+              <div class="col-sm-4">
+                <h3>RochaMod <span id="v3"></span></h3>
+              </div>
+              <div class="col-sm-4">For 32-BIT Proccessor</div>
+              <div class="col-sm-4">
+                <a target="_blank" id="three" href="#"
+                  ><button class="btn btn-success">Download APK</button></a
+                >
+              </div>
+            </div>
+          </div>
+        </center>
+      </div>
+      <br />
+    </div>
+    <br>
+    <center>
+    <p>If download not working here, download from here and find your version, <a target="_blank" href="https://github.com/rochamod-gaming/app">download now</a></p>
+  </center>
+ <script>
+
+      var latest = "1.0";
+
+      selectValues = {
+        "1.0": "1.0"
+      };
+
+
+      $.each(selectValues, function (key, value) {
+        if(value==latest){
+          $("#select").append(
+          $("<option></option>").attr("value", key).text(value+" (Latest)")
+        );
+        } else {
+        $("#select").append(
+          $("<option></option>").attr("value", key).text(value)
+        );
+        }
+      });
+
+      $("#v1").text(latest);
+        $("#v2").text(latest);
+        $("#v3").text(latest);
+        var one =
+          "https://github.com/rochamod-gaming/app/raw/main/" +
+          latest +
+          "/app-arm64-v8a-release.apk";
+        var two =
+          "https://github.com/rochamod-gaming/app/raw/main/" +
+          latest +
+          "/app-x86_64-release.apk";
+        var three =
+          "https://github.com/rochamod-gaming/app/raw/main/" +
+          latest +
+          "/app-armeabi-v7a-release.apk";
+
+        $("#one").attr("href", one);
+        $("#two").attr("href", two);
+        $("#three").attr("href", three);
+
+      $('#select option[value="'+latest+'"]').attr("selected",true);
+      $("#select").on("change", function () {
+        var v = this.value;
+        $("#v1").text(v);
+        $("#v2").text(v);
+        $("#v3").text(v);
+        var one =
+          "https://github.com/rochamod-gaming/app/raw/main/" +
+          this.value +
+          "/app-arm64-v8a-release.apk";
+        var two =
+          "https://github.com/rochamod-gaming/app/raw/main/" +
+          this.value +
+          "/app-x86_64-release.apk";
+        var three =
+          "https://github.com/rochamod-gaming/app/raw/main/" +
+          this.value +
+          "/app-armeabi-v7a-release.apk";
+
+        $("#one").attr("href", one);
+        $("#two").attr("href", two);
+        $("#three").attr("href", three);
+      });
+    </script>
+  </body>
+</html>
